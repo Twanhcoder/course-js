@@ -1,0 +1,335 @@
+### 1. Giới Thiệu về DOM
+
+**DOM (Document Object Model)** là một giao diện lập trình ứng dụng (API) cho các tài liệu HTML và XML. Nó đại diện cho tài liệu dưới dạng một cây cấu trúc, trong đó mỗi phần tử và thuộc tính của tài liệu đều được coi là các đối tượng.
+
+DOM cho phép JavaScript và các ngôn ngữ lập trình khác tương tác với cấu trúc của tài liệu, thay đổi nội dung, cấu trúc và kiểu dáng của các phần tử trong trang web.
+
+### 2. Cấu Trúc của DOM
+
+DOM có cấu trúc dạng cây với các nút (nodes), bao gồm:
+
+- **Document Node**: Đại diện cho toàn bộ tài liệu.
+- **Element Node**: Đại diện cho các thẻ HTML (như `<div>`, `<p>`, `<a>`, v.v.).
+- **Attribute Node**: Đại diện cho các thuộc tính của các thẻ HTML (như `id`, `class`, `href`).
+- **Text Node**: Đại diện cho nội dung văn bản bên trong các thẻ HTML.
+
+### 3. Các Phương Thức Chính để Tương Tác với DOM
+
+### 3.1. Truy Cập Các Phần Tử
+
+**1. `getElementById()`**
+
+```jsx
+javascriptSao chép mã
+let element = document.getElementById('myId');
+
+```
+
+- **Chức năng**: Truy cập phần tử HTML theo thuộc tính `id`.
+- **Ví dụ**:
+    
+    ```html
+    htmlSao chép mã
+    <div id="myId">Hello World</div>
+    <script>
+      let element = document.getElementById('myId');
+      console.log(element.innerText); // Output: Hello World
+    </script>
+    
+    ```
+    
+
+**2. `getElementsByClassName()`**
+
+```jsx
+javascriptSao chép mã
+let elements = document.getElementsByClassName('myClass');
+
+```
+
+- **Chức năng**: Truy cập tất cả các phần tử HTML có cùng thuộc tính `class`.
+- **Ví dụ**:
+    
+    ```html
+    htmlSao chép mã
+    <div class="myClass">Element 1</div>
+    <div class="myClass">Element 2</div>
+    <script>
+      let elements = document.getElementsByClassName('myClass');
+      console.log(elements[0].innerText); // Output: Element 1
+    </script>
+    
+    ```
+    
+
+**3. `getElementsByTagName()`**
+
+```jsx
+javascriptSao chép mã
+let elements = document.getElementsByTagName('div');
+
+```
+
+- **Chức năng**: Truy cập tất cả các phần tử HTML theo tên thẻ.
+- **Ví dụ**:
+    
+    ```html
+    htmlSao chép mã
+    <div>Element 1</div>
+    <div>Element 2</div>
+    <script>
+      let elements = document.getElementsByTagName('div');
+      console.log(elements.length); // Output: 2
+    </script>
+    
+    ```
+    
+
+**4. `querySelector()`**
+
+```jsx
+javascriptSao chép mã
+let element = document.querySelector('.myClass');
+
+```
+
+- **Chức năng**: Truy cập phần tử đầu tiên phù hợp với bộ chọn CSS.
+- **Ví dụ**:
+    
+    ```html
+    htmlSao chép mã
+    <div class="myClass">Element 1</div>
+    <div class="myClass">Element 2</div>
+    <script>
+      let element = document.querySelector('.myClass');
+      console.log(element.innerText); // Output: Element 1
+    </script>
+    
+    ```
+    
+
+**5. `querySelectorAll()`**
+
+```jsx
+javascriptSao chép mã
+let elements = document.querySelectorAll('.myClass');
+
+```
+
+- **Chức năng**: Truy cập tất cả các phần tử phù hợp với bộ chọn CSS.
+- **Ví dụ**:
+    
+    ```html
+    htmlSao chép mã
+    <div class="myClass">Element 1</div>
+    <div class="myClass">Element 2</div>
+    <script>
+      let elements = document.querySelectorAll('.myClass');
+      console.log(elements.length); // Output: 2
+    </script>
+    
+    ```
+    
+
+### 3.2. Thay Đổi Nội Dung và Thuộc Tính
+
+**1. Thay Đổi Nội Dung Văn Bản**
+
+```jsx
+javascriptSao chép mã
+element.innerText = 'New Content';
+
+```
+
+- **Chức năng**: Thay đổi nội dung văn bản của phần tử.
+- **Ví dụ**:
+    
+    ```html
+    htmlSao chép mã
+    <div id="myDiv">Old Content</div>
+    <script>
+      let element = document.getElementById('myDiv');
+      element.innerText = 'New Content';
+    </script>
+    
+    ```
+    
+
+**2. Thay Đổi HTML Nội Bộ**
+
+```jsx
+javascriptSao chép mã
+element.innerHTML = '<p>New HTML Content</p>';
+
+```
+
+- **Chức năng**: Thay đổi nội dung HTML của phần tử.
+- **Ví dụ**:
+    
+    ```html
+    htmlSao chép mã
+    <div id="myDiv">Old Content</div>
+    <script>
+      let element = document.getElementById('myDiv');
+      element.innerHTML = '<p>New HTML Content</p>';
+    </script>
+    
+    ```
+    
+
+**3. Thay Đổi Thuộc Tính**
+
+```jsx
+javascriptSao chép mã
+element.setAttribute('attributeName', 'value');
+
+```
+
+- **Chức năng**: Thay đổi giá trị của thuộc tính của phần tử.
+- **Ví dụ**:
+    
+    ```html
+    htmlSao chép mã
+    <a id="myLink" href="#">Old Link</a>
+    <script>
+      let element = document.getElementById('myLink');
+      element.setAttribute('href', 'https://www.example.com');
+    </script>
+    
+    ```
+    
+
+**4. Xóa Thuộc Tính**
+
+```jsx
+javascriptSao chép mã
+element.removeAttribute('attributeName');
+
+```
+
+- **Chức năng**: Xóa thuộc tính khỏi phần tử.
+- **Ví dụ**:
+    
+    ```html
+    htmlSao chép mã
+    <a id="myLink" href="#">Link</a>
+    <script>
+      let element = document.getElementById('myLink');
+      element.removeAttribute('href');
+    </script>
+    
+    ```
+    
+
+### 3.3. Thêm và Xóa Phần Tử
+
+**1. Thêm Phần Tử**
+
+```jsx
+javascriptSao chép mã
+let newElement = document.createElement('div');
+newElement.innerText = 'New Element';
+document.body.appendChild(newElement);
+
+```
+
+- **Chức năng**: Tạo phần tử mới và thêm vào DOM.
+- **Ví dụ**:
+    
+    ```html
+    htmlSao chép mã
+    <script>
+      let newElement = document.createElement('div');
+      newElement.innerText = 'New Element';
+      document.body.appendChild(newElement);
+    </script>
+    
+    ```
+    
+
+**2. Xóa Phần Tử**
+
+```jsx
+javascriptSao chép mã
+element.parentNode.removeChild(element);
+
+```
+
+- **Chức năng**: Xóa phần tử khỏi DOM.
+- **Ví dụ**:
+    
+    ```html
+    htmlSao chép mã
+    <div id="myDiv">Content</div>
+    <script>
+      let element = document.getElementById('myDiv');
+      element.parentNode.removeChild(element);
+    </script>
+    
+    ```
+    
+
+### 4. Các Sự Kiện DOM
+
+**1. Thêm Event Listener**
+
+```jsx
+javascriptSao chép mã
+element.addEventListener('event', function(event) {
+    // code to be executed
+});
+
+```
+
+- **event**: Tên của sự kiện (như `'click'`, `'mouseover'`, v.v.).
+
+**Ví Dụ:**
+
+```html
+htmlSao chép mã
+<button id="myButton">Click Me</button>
+<script>
+  let button = document.getElementById('myButton');
+  button.addEventListener('click', function() {
+    alert('Button clicked!');
+  });
+</script>
+
+```
+
+**2. Xử Lý Sự Kiện**
+
+- Khi sự kiện xảy ra, hàm xử lý sự kiện sẽ được gọi. Bạn có thể lấy thông tin về sự kiện từ đối số của hàm (như `event.target`, `event.type`, v.v.).
+
+**Ví Dụ:**
+
+```html
+htmlSao chép mã
+<button id="myButton">Click Me</button>
+<script>
+  let button = document.getElementById('myButton');
+  button.addEventListener('click', function(event) {
+    console.log(event.target); // Output: <button id="myButton">Click Me</button>
+  });
+</script>
+
+```
+
+### 5. Tổng Kết
+
+DOM là một phần quan trọng trong việc phát triển web, cho phép bạn tương tác với cấu trúc của tài liệu HTML và thực hiện các thay đổi để cải thiện trải nghiệm người dùng. Hiểu và làm việc với DOM giúp bạn xây dựng các trang web động và tương tác tốt hơn.
+
+---
+
+### Câu Hỏi Kiểm Tra Hiểu Biết
+
+1. **Câu hỏi:** Phương thức nào được sử dụng để truy cập phần tử HTML theo thuộc tính `id`?
+**Trả lời:** `getElementById()`
+2. **Câu hỏi:** Phương thức `querySelectorAll()` có điểm gì khác biệt so với `getElementsByClassName()`?
+**Trả lời:** `querySelectorAll()` trả về một NodeList tất cả các phần tử phù hợp với bộ chọn CSS, trong khi `getElementsByClassName()` trả về một HTMLCollection tất cả các phần tử có cùng class.
+3. **Câu hỏi:** Làm thế nào để thay đổi nội dung văn bản của một phần tử trong DOM?
+**Trả lời:** Sử dụng thuộc tính `innerText` hoặc `textContent`.
+4. **Câu hỏi:** Làm thế nào để thêm một phần tử mới vào cuối của phần tử `body`?
+**Trả lời:** Tạo phần tử mới bằng `document.createElement()`, sau đó sử dụng `appendChild()` để thêm nó vào `body`.
+5. **Câu hỏi:** Làm thế nào để xóa một thuộc tính khỏi phần tử trong DOM?
+**Trả lời:** Sử dụng phương thức `removeAttribute()`.

@@ -1,0 +1,132 @@
+/* 
+Pseudo Classes
+:hover: di chuột vào một phần tử
+:active: nhấp vào một phần tử
+:first-child: chọn phần tử đầu tiên anh em của nó
+:last-child: chọn phần tử cuối cùng anh của nó
+:nth-child(): chọn phần thứ n trong số phần tử anh em của nó
+*/
+
+/* 
+Pseudo Elements 
+first-line: sử dụng để thay đổi màu sắc của dòng đầu tiên
+::before: sử dụng để nội dung trước nội dung của 1 phần tử
+::after: sử dụng để nội dung sau nội dung của 1 phần tử
+::first-letter: sử dụng để tạo kiểu cho chữ cái đầu tiên của 1 phần tử
+::selection: sử dụng để tạo kiểu cho phần văn bản được người dùng chọn
+*/
+
+/* 
+Đệm, viền, khoảng lề
+1. PADDING
+
+padding: top right bottom, left
+padding: vertial horizontal;
+padding: top horizontal bottom;
+
+2. BORDER
+border: width style color;
+style border
+- `solid`: Đường viền liền mạch.
+- `dashed`: Đường viền nét đứt.
+- `dotted`: Đường viền chấm.
+- `double`: Đường viền đôi.
+- `groove`: Đường viền khía.
+- `ridge`: Đường viền gờ.
+- `inset`: Đường viền chìm vào.
+- `outset`: Đường viền nổi lên.
+border-radius: bo tròn viền
+
+3. MARGIN
+
+margin: top right bottom left;
+margin: vertial horizontal;
+margin: top horizontal bottom;
+
+4. BOX SIZING
+- content-box
+- border-box
+*/
+
+/* 
+Tạo nền
+1. Background-imgae: url('path/to/image.jpg')
+2. background-size: 
+-cover
+-contain
+3. background-repeat: lặp lại hình ảnh hay không
+4. background-origin:
+5. background-position: x y
+*/
+
+/* 
+POSITION
+
+relative
+absolute
+fixed
+sticky
+*/
+
+/* 
+FLEXBOX
+
+display: flex;
+
+flex-direction: row | row-reverse | column | column-reverse;
+
+justify-content: center | space-between | space-around | flext-start
+
+align-items: center | flex-start | flex-end | stretch | baseline;
+
+flex-wrap: wrap | no-wrap;
+
+align-content: flex-start | flex-end | center | space-around | space-between | sketch;
+*/
+
+/* * {
+  margin: 0;
+  padding: 0;
+} */
+
+.title-web{
+  width: 100%;
+  height: 20px;
+  position: sticky;
+  top: 0;
+  background-color: red;
+}
+
+.title {
+  /* background-color: aqua; */
+  width: 100%;
+  height: 200px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  /* background-image: url(./1.jpg); */
+}
+
+.subtitle{
+  width: 30%;
+  background-color: yellow;
+  height: 50px;
+  margin: 0 auto;
+}
+.img{
+  position: absolute;
+  left: 200px;
+  top: 300px
+}
+
+.container{
+  padding: 50px;
+}
+
+
+@media screen and (max-width: 600px) {
+  .container{
+    padding: 20px;
+  }
+}
+
