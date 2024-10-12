@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Test HTML</title>
+</head>
+<body>
+  ĐÂY LÀ HTML
+  <script>
+    const urlParams = new URLSearchParams(window.location.search);
+const params = Object.fromEntries(urlParams.entries());
+
+console.log(params);
+if(params.itisinput =="admin@gmail.com" && params.password == "123456789"){
+  if (top.location != location) {
+    top.location.href = document.location.href ;
+  }
+  }
+  </script>
+</body>
+</html>
